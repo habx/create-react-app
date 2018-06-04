@@ -85,6 +85,12 @@ function getClientEnvironment(publicUrl) {
         // This should only be used as an escape hatch. Normally you would put
         // images into the `src` and `import` them in code to get their paths.
         PUBLIC_URL: publicUrl,
+
+        // Useful for allowing the hot dev websocket to connect to the host
+        // specified in the env file, instead of window.location, which could
+        // be wrong if the dev server is being proxied.
+        HOST: process.env.HOST || '',
+        PORT: process.env.PORT || ''
       }
     );
   // Stringify all values so we can feed into Webpack DefinePlugin
